@@ -117,90 +117,95 @@ p {
 ========================= */
 
 header {
-    position: sticky;
-    top: 0;
-
-    background: var(--clr-white);
-
-    z-index: 1000;
-
-    box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
-}
-
-header .container {
-    min-height: 6rem;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+    padding: 32px 20px;
+    background-color: var(--clr-gray);
 
-header img {
-    height: 4.25rem;
-    width: auto;
-}
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
 
-.menu-toggle {
-    border: none;
-    background: transparent;
+        li {
+            a {
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+    }
 
-    font-size: 2rem;
+    .menu-icon {
+        display: none;
+        cursor: pointer;
 
-    cursor: pointer;
-}
-
-/* =========================
+        i {
+            font-size: 24px;
+        }
+        
+    }
+}/* =========================
    MOBILE MENU
 ========================= */
 
-.mobile-menu {
-    position: fixed;
+@media (max-width: 768px) {
+    header {
 
-    top: 0;
-    right: -100%;
+        &.active {
 
-    width: min(85vw, 400px);
-    height: 100vh;
+            nav {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #c4c4c4;
+                z-index: 100;
 
-    padding: 2rem;
+                ul {
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 20px;
+                    height: 100vh;
 
-    background: var(--clr-black);
+                    li {
+                        a {
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
 
-    transition: right .35s ease;
+            .menu-icon {
+                .open {
+                    display: none;
+                }
 
-    z-index: 9999;
+                .close {
+                    display: block;
+                }
+            }
+        }
+
+        nav {
+            display: none;
+        }
+
+        .menu-icon {
+            position: relative;
+            z-index: 100;
+            display: block;
+
+            .close {
+                display: none;
+            }
+        }
+    }
 }
-
-.mobile-menu.active {
-    right: 0;
-}
-
-.menu-close {
-    border: none;
-    background: none;
-
-    color: var(--clr-white);
-
-    font-size: 2rem;
-
-    margin-bottom: 3rem;
-
-    cursor: pointer;
-}
-
-.mobile-menu ul {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.mobile-menu a {
-    color: var(--clr-white);
-
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
+ 
 /* =========================
    HERO
 ========================= */
